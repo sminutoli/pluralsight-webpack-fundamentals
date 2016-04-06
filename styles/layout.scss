@@ -1,4 +1,8 @@
 h1 {
   color: $main-color;
   margin: 3em;
+  transition: all .5s;
+}
+h1:hover {
+  color: darken($main-color, 30%);
 }

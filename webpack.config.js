@@ -46,7 +46,7 @@ module.exports = {
         exclude: 'node_modules'
       },
       {
-        loader: ExtractPlugin.extract('style-loader', 'css-loader!sass-loader'), //el orden es inverso al pipe() acá
+        loader: ExtractPlugin.extract('style-loader', 'css-loader!autoprefixer-loader!sass-loader'), //el orden es inverso al pipe() acá
         test: /\.scss$/,
         exclude: 'node_modules'
       }
