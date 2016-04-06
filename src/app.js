@@ -1,4 +1,5 @@
 import Main from './main';
 
-document.body.innerHTML = Main.render();
-debugger;
+document.body.appendChild(Main.render());
+
+require('../styles/index.scss');

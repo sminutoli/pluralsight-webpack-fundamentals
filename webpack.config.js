@@ -33,6 +33,16 @@ module.exports = {
         query: {
           presets: ['es2015', 'react'],
         }
+      },
+      {
+        loader: 'style-loader!css-loader',
+        test: /\.css$/,
+        exclude: 'node_modules'
+      },
+      {
+        loader: 'style-loader!css-loader!sass-loader', //el orden es inverso al pipe() acá
+        test: /\.scss$/,
+        exclude: 'node_modules'
       }
     ]
   },
