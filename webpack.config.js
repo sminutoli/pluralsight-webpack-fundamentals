@@ -1,4 +1,5 @@
 var path = require('path');
+var ExtractPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   context: path.resolve('src'),
@@ -11,10 +12,15 @@ module.exports = {
   ],
 
   output:{
-    path: path.resolve('build/js'),
-    publicPath: 'public/assets/js',
+    path: path.resolve('dist/'),
+    publicPath: 'public/assets/',
     filename: 'bundle.js' //si el output usa [name].js, genera un archivo que coincide con el entry point usado
   },
+
+  plugins: [
+    new ExtractPlugin('styles.css')
+  ],
+
   devServer: {
     contentBase: 'public',
     port: 8080
@@ -40,7 +46,7 @@ module.exports = {
         exclude: 'node_modules'
       },
       {
-        loader: 'style-loader!css-loader!sass-loader', //el orden es inverso al pipe() acá
+        loader: ExtractPlugin.extract('style-loader', 'css-loader!sass-loader'), //el orden es inverso al pipe() acá
         test: /\.scss$/,
         exclude: 'node_modules'
       }
